@@ -111,7 +111,7 @@ paths:
         schema:
           type: string
         required: true
-        description: The user Id
+        description: The job Id
     get:
       tags:
       - Jobs
