@@ -22,9 +22,13 @@ paths:
               allOf:
               - $ref: '#/components/schemas/RegisterRequest'
               - example:
-                  name: Datta
+                  name: ''
+                  email: ''
+                  password: ''
             example:
-              name: Datta
+              name: ''
+              email: ''
+              password: ''
         required: true
       responses:
         '200':
@@ -47,11 +51,11 @@ paths:
               allOf:
               - $ref: '#/components/schemas/LoginRequest'
               - example:
-                  email: datta@gmail.com
-                  password: '123456'
+                  email: ''
+                  password: ''
             example:
-              email: datta@gmail.com
-              password: '123456'
+              email: ''
+              password: ''
         required: true
       responses:
         '200':
@@ -74,11 +78,11 @@ paths:
               allOf:
               - $ref: '#/components/schemas/createJobRequest'
               - example:
-                  company: netflix
-                  position: fullstack-developer
+                  company: ''
+                  position: ''
             example:
-              company: netflix
-              position: fullstack-developer
+              company: ''
+              position: ''
         required: true
       responses:
         '200':
@@ -107,7 +111,7 @@ paths:
         schema:
           type: string
         required: true
-        description: The job ID
+        description: The user Id
     get:
       tags:
       - Jobs
@@ -121,7 +125,7 @@ paths:
       deprecated: false
       security:
       - bearer: []
-
+      
     patch:
       tags:
       - Jobs
@@ -136,11 +140,11 @@ paths:
               allOf:
               - $ref: '#/components/schemas/updateJobRequest'
               - example:
-                  company: google
-                  position: android-developer
+                  company: ''
+                  position: ''
             example:
-              company: google
-              position: android-developer
+              company: ''
+              position: ''
         required: true
       responses:
         '200':
@@ -169,12 +173,20 @@ components:
       title: RegisterRequest
       required:
       - name
+      - email
+      - password
       type: object
       properties:
         name:
           type: string
+        email:
+          type: string
+        password:
+          type: string
       example:
-        name: Datta
+        name: ''
+        email: ''
+        password: ''
     LoginRequest:
       title: LoginRequest
       required:
@@ -187,8 +199,8 @@ components:
         password:
           type: string
       example:
-        email: datta@gmail.com
-        password: '123456'
+        email: ''
+        password: ''
     createJobRequest:
       title: createJobRequest
       required:
@@ -201,8 +213,8 @@ components:
         position:
           type: string
       example:
-        company: netflix
-        position: fullstack-developer
+        company: ''
+        position: ''
     updateJobRequest:
       title: updateJobRequest
       required:
@@ -215,8 +227,8 @@ components:
         position:
           type: string
       example:
-        company: google
-        position: android-developer
+        company: ''
+        position: ''
   securitySchemes:
     bearer:
       type: http
