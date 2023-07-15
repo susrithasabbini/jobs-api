@@ -35,6 +35,10 @@ app.use(xss());
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/jobs", authenticateUser, jobsRoute);
 
+app.get("/", (req, res) => {
+  res.send("<h1>JOBS API</h1>");
+});
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
